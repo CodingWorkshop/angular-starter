@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
+  name:string;
+  password:string;
   constructor() { }
 
   ngOnInit() {
   }
+
+  onSubmit() {
+    alert('登入成功');
+    location.href='../';
+}
 
 }
