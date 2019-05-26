@@ -18,6 +18,8 @@ export class DymanicComponent implements OnInit {
   selectedComponentName: string;
   list: any[] = [];
   compnent: '';
+  style:'';
+  styleValue:'';
   constructor(
     private dynamicComponentService: DynamicComponentService,
     private componentFactoryResolver: ComponentFactoryResolver
@@ -31,6 +33,9 @@ export class DymanicComponent implements OnInit {
     );
     const viewContainerRef = this.componentHost.viewContainerRef;
     const component = viewContainerRef.createComponent(componentFactory);
+
     this.list.push(component);
+    this.list[this.list.length - 1].location.nativeElement.style[this.style] = this.styleValue;
+    console.log(this.list);
   }
 }
