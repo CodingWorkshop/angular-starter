@@ -6,17 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  name: string;
+  password: string;
+  constructor() {}
 
-  name:string;
-  password:string;
-  constructor() { }
-
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   onSubmit() {
     alert('登入成功');
-    location.href='../';
-}
-
+    location.href = '../';
+  }
 }
