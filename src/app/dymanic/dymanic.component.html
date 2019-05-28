@@ -1,7 +1,8 @@
-<h1>loginComponent</h1>
-<h2>registerComponent</h2>
-<input type="text" [(ngModel)]="compnent">
-<button type="button" (click)="addComponent(compnent)">add</button>
+<select class="form-control" [(ngModel)]="compnent">
+  <option [value]="'loginComponent'">loginComponent</option>
+  <option [value]="'registerComponent'">registerComponent</option>
+</select>
 <input type="text" [(ngModel)]="style" placeholder="prop">
 <input type="text" [(ngModel)]="styleValue" placeholder="value">
+<button type="button" (click)="addComponent(compnent)">add</button>
 <ng-template appDynamicComponent></ng-template>
