@@ -1,11 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule ,NO_ERRORS_SCHEMA} from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { FormsModule } from '@angular/forms';
+import{AngularDraggableModule} from 'angular2-draggable';
+import { SortableModule } from 'ngx-bootstrap/sortable';
 /**
  * Layout
  */
@@ -27,8 +29,9 @@ import { DynamicComponentService } from './_serviece/dynamic-component.service';
     DymanicComponent,
     DynamicComponentDirective
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule,AngularDraggableModule,SortableModule.forRoot()],
   providers: [DynamicComponentService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas:[NO_ERRORS_SCHEMA]
 })
 export class AppModule {}

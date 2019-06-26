@@ -1,8 +1,40 @@
-<select class="form-control" [(ngModel)]="compnent">
+<style>
+.box-container {
+  position: relative;
+  height: 150px;
+  padding: 45px 0;
+}
+
+.box-swap {
+  position: absolute;
+  text-align: center;
+  width: 150px;
+  height: 60px;
+  padding: 15px 35px;
+  line-height: 30px;
+
+}
+.static-block {
+    transition: all 0.3s ease-out;
+  }
+</style>
+<!-- <select class="form-control" [(ngModel)]="compnent">
   <option [value]="'loginComponent'">loginComponent</option>
   <option [value]="'registerComponent'">registerComponent</option>
 </select>
 <input type="text" [(ngModel)]="style" placeholder="prop">
-<input type="text" [(ngModel)]="styleValue" placeholder="value">
-<button type="button" (click)="addComponent(compnent)">add</button>
-<ng-template appDynamicComponent></ng-template>
+<input type="text" [(ngModel)]="styleValue" placeholder="value"> -->
+<label *ngFor="let checkc of checkComponent">
+<input type="checkbox" [(ngModel)]="checkc.isSelect"/>{{checkc.Name}}
+</label>
+
+<button type="button" (click)="createComponent()">add</button>
+<!-- <button type="button" (click)="addComponent(compnent)">add</button> -->
+
+<div class="box-container" >
+  <div *ngFor="let creatC of isCheckComponent;let i=index" class="box-swap " [ngClass]="i==0?'bg-success':'bg-info static-block'" ngDraggable [preventDefaultEvent]="true" [zIndexMoving]="i==0?9999:''" [trackPosition]="false" [position]="creatC.position"
+    (movingOffset)="onMoving($event,creatC,i)" (window:mouseup)="isChange=false"><ng-container *ngComponentOutlet="mapping.get(creatC.componentName)" ></ng-container>
+  </div>
+  <!-- <div class="box-swap bg-info static-block" ngDraggable [preventDefaultEvent]="true" [position]="positionB" (movingOffset)="onRMoving($event)">B</div>
+  <div class="box-swap bg-info static-block" ngDraggable [preventDefaultEvent]="true" [position]="positionB" (movingOffset)="onRMoving($event)">B</div> -->
+</div>
